@@ -1,7 +1,6 @@
-package com.example.franciscoandrade.forecastmvvm.data
+package com.example.franciscoandrade.forecastmvvm.data.network
 
 import com.example.franciscoandrade.forecastmvvm.data.network.response.CurrentWeatherResponse
-import com.example.franciscoandrade.forecastmvvm.data.response.CurrentWeatherResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -11,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val API_KEY = "YOUR KEY HERE"
+const val API_KEY = "389fcbbc37bf4808a14232442181711"
 
 interface ApixWeatherApiService {
 
@@ -23,7 +22,9 @@ interface ApixWeatherApiService {
 
 
     companion object {
-        operator fun invoke(): ApixWeatherApiService {
+        operator fun invoke(
+            connectivityInterceptor : ConnectivityInterceptor
+        ): ApixWeatherApiService {
             val requestInterceptor = Interceptor { chain ->
                 val url = chain.request()
                     .url()
@@ -41,6 +42,7 @@ interface ApixWeatherApiService {
 
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(requestInterceptor)
+                .addInterceptor(connectivityInterceptor)
                 .build()
 
             return Retrofit.Builder()
