@@ -1,5 +1,6 @@
 package com.example.franciscoandrade.forecastmvvm.data
 
+import com.example.franciscoandrade.forecastmvvm.data.network.response.CurrentWeatherResponse
 import com.example.franciscoandrade.forecastmvvm.data.response.CurrentWeatherResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
