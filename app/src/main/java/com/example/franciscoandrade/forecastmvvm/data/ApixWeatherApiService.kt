@@ -1,6 +1,7 @@
 package com.example.franciscoandrade.forecastmvvm.data
 
 import com.example.franciscoandrade.forecastmvvm.data.network.response.CurrentWeatherResponse
+import com.example.franciscoandrade.forecastmvvm.data.response.CurrentWeatherResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -10,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val API_KEY = "389fcbbc37bf4808a14232442181711"
+const val API_KEY = "YOUR KEY HERE"
 
 interface ApixWeatherApiService {
 
